@@ -1,0 +1,13 @@
+services:
+  app:
+    build:
+      context: .
+    container_name: fastapi-app
+    environment:
+      DB_HOST: 127.0.0.1  # Conexión a MySQL local
+      DB_PORT: 3306
+      DB_USER: administrador
+      DB_PASSWORD: Duplauto15@
+      DB_NAME: users_db
+    ports:
+      - "8000:8000"

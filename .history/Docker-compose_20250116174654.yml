@@ -1,0 +1,12 @@
+services:
+  app:
+    build:
+      context: .
+    container_name: fastapi-app
+    environment:
+      DB_HOST: host.docker.internal  # Conexión a MySQL local
+      DB_USER: root
+      DB_PASSWORD: Duplauto15@
+      DB_NAME: users_db
+    ports:
+      - "8000:8000"

@@ -1,0 +1,31 @@
+version: "3.9"
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: mysql-db
+    environment:
+      MYSQL_ROOT_PASSWORD: Duplauto15@
+      MYSQL_DATABASE: users_db
+    ports:
+      - "3306:3306"
+
+  app:
+    build:
+      context: .
+    container_name: fastapi-app
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_USER: root
+      DB_PASSWORD: Duplauto15@
+      DB_NAME: users_db
+    ports:
+      - "8000:8000"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
